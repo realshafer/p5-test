@@ -8,6 +8,10 @@ function setup() {
   osc.amp(1);
   
   playButton = createButton('play');
+  playButton.style('font-size', '30px');
+  playButton.style('background-color','#00E938');
+  playButton.style('color','#000000');
+  playButton.style('padding','1em');
   playButton.position(10,10);
   playButton.mousePressed(function playOscillator(){
     osc.freq(random(500,6000))
@@ -15,7 +19,11 @@ function setup() {
   })
   
   stopButton = createButton('stop');
-  stopButton.position(10,30);
+  stopButton.style('font-size', '30px');
+  stopButton.style('background-color','#F80F05');
+  stopButton.style('color','#FDFAFA');
+  stopButton.style('padding','1em');
+  stopButton.position(10,120);
   stopButton.mousePressed(function stopOscillator(){
     osc.stop();
   })
