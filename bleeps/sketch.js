@@ -1,16 +1,16 @@
 let sound1, sound2, sound3, sound4, playButton, stopButton, player, file;
 
 function setup() {
-  sound1 = loadSound('assets/bleeps1.mp3');
-  sound2 = loadSound('assets/bleeps2.mp3');
-  sound3 = loadSound('assets/bleeps3.mp3');
-  sound4 = loadSound('assets/bleeps4.mp3');
-  sound5 = loadSound('assets/bleeps5.mp3');
-  sound6 = loadSound('assets/bleeps6.mp3');
-  sound7 = loadSound('assets/bleeps7.mp3');
-  sound8 = loadSound('assets/bleeps8.mp3');
-  sound9 = loadSound('assets/bleeps9.mp3');
-  sound10 = loadSound('assets/bleeps10.mp3');
+  sound1 = loadSound('bleeps/assets/bleeps1.mp3');
+  sound2 = loadSound('bleeps/assets/bleeps2.mp3');
+  sound3 = loadSound('bleeps/assets/bleeps3.mp3');
+  sound4 = loadSound('bleeps/assets/bleeps4.mp3');
+  sound5 = loadSound('bleeps/assets/bleeps5.mp3');
+  sound6 = loadSound('bleeps/assets/bleeps6.mp3');
+  sound7 = loadSound('bleeps/assets/bleeps7.mp3');
+  sound8 = loadSound('bleeps/assets/bleeps8.mp3');
+  sound9 = loadSound('bleeps/assets/bleeps9.mp3');
+  sound10 = loadSound('bleeps/assets/bleeps10.mp3');
 
   playButton = createButton('play');
   playButton.style('font-size', '30px');
