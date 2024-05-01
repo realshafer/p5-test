@@ -1,6 +1,6 @@
-let sound;
+let sound1, sound2, sound3, sound4, playButton, stopButton, player, file;
 
-function preload(){
+function setup() {
   sound1 = loadSound('assets/bleeps1.mp3');
   sound2 = loadSound('assets/bleeps2.mp3');
   sound3 = loadSound('assets/bleeps3.mp3');
@@ -11,79 +11,46 @@ function preload(){
   sound8 = loadSound('assets/bleeps8.mp3');
   sound9 = loadSound('assets/bleeps9.mp3');
   sound10 = loadSound('assets/bleeps10.mp3');
-  chooseSound();
-}
 
-function setup(){
-  let cnv = createCanvas(500,500);
-  cnv.mouseClicked(togglePlay);
-  fft = new p5.FFT();
-  sound.amp(0.8);
-}
-
-function draw(){
-  background(220);
-
-  let spectrum = fft.analyze();
-  noStroke();
-  fill(255, 0, 255);
-  for (let i = 0; i< spectrum.length; i++){
-    let x = map(i, 0, spectrum.length, 0, width);
-    let h = -height + map(spectrum[i], 0, 255, height, 0);
-    rect(x, height, width / spectrum.length, h )
-  }
-
-  let wave = fft.waveform();
-  noFill();
-  beginShape();
-  stroke(20);
-  for (let i = 0; i < wave.length; i++){
-    let x = map(i, 0, wave.length, 0, width);
-    let y = map( wave[i], -1, 1, 0, height);
-    vertex(x,y);
-  }
-  endShape();
-
-  text('tap to play', 20, 20);
-}
-
-function togglePlay() {
-  if (sound.isPlaying()) {
-    sound.pause();
-  } else {
-    chooseSound();
-    sound.loop();
-  }
-}
-
-function chooseSound(){
+  playButton = createButton('play');
+  playButton.style('font-size', '30px');
+  playButton.style('background-color','#00E938');
+  playButton.style('color','#000000');
+  playButton.style('padding','1em');
+  playButton.position(10,10);
+  playButton.mousePressed(function playSound(){
     file = random(0,10);
     if (file < 1) {
-      sound = sound1;
+      player = sound1;
     } else if (file > 1 && file < 2) {
-      sound = sound2;
+      player = sound2;
     } else if (file > 2 && file < 3) {
-      sound = sound3;
+      player = sound3;
     } else if (file > 3 && file < 4) {
-      sound = sound4;
+      player = sound4;
     } else if (file > 4 && file < 5) {
-      sound = sound5;
+      player = sound5;
     } else if (file > 5 && file < 6) {
-      sound = sound6;
+      player = sound6;
     } else if (file > 6 && file < 7) {
-      sound = sound7;
+      player = sound7;
     } else if (file > 7 && file < 8) {
-      sound = sound8;
+      player = sound8;
     } else if (file > 8 && file < 9) {
-      sound = sound9;
+      player = sound9;
     } else if (file > 9) {
-      sound = sound10;
+      player = sound10;
     }
-    // function togglePlay() {
-    //   if (sound.isPlaying()) {
-    //     sound.pause();
-    //   } else {
-    //     sound.loop();
-    //   }
-    // }
+    player.loop();
+  })
+  
+  stopButton = createButton('stop');
+  stopButton.style('font-size', '30px');
+  stopButton.style('background-color','#F80F05');
+  stopButton.style('color','#FDFAFA');
+  stopButton.style('padding','1em');
+  stopButton.position(10,120);
+  stopButton.mousePressed(function stopSound(){
+    player.stop();
+  })
 }
